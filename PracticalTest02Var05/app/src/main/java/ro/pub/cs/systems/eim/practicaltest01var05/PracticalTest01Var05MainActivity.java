@@ -85,6 +85,13 @@ public class PracticalTest01Var05MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        Intent i_s = new Intent(getApplicationContext(), PracticalTest01Var05Service.class);
+        stopService(i_s);
+        super.onDestroy();
+    }
+
+    @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         outState.putInt("press_count", press_count);
         super.onSaveInstanceState(outState);
